@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+    <script src="https://kit.fontawesome.com/5d1db9cbf5.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .button{
+            transition: .4s ;
+        } 
+    .modal {  
+        display: flex;  
+        justify-content: center;  
+        align-items: center;  
+        position: fixed;  
+        z-index: 1000;  
+        left: 0;  
+        top: 0;  
+        width: 100%;  
+        height: 100%;  
+        background-color: rgba(0, 0, 0, 0.5);  
+    }  
+    .modal-content {  
+        background-color: white;  
+        padding: 20px;  
+        border-radius: 5px;  
+        width: 300px;  
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);  
+        position: relative;  
+    }  
+    .close-button {  
+        position: absolute;  
+        right: 10px;  
+        top: 10px;  
+        cursor: pointer;  
+        font-size: 18px;  
+    }  
+    .hiddens {  
+        display: none;  
+    }  
+        /* For the mobile menu sliding effect */  
+        /* .navbar-links {  
+            transition: transform 0.3s ease;  
+        }  
+        .navbar-links.hidden {  
+            transform: translateX(-100%);  
+        }   */
+        .navbar-links {  
+            transition: transform 0.3s ease;  
+        }  
+        .navbar-links.hidden {  
+            transform: translateX(-100%);  
+        } 
+        .nav{
+            position: sticky;
+            top: 0;
+        }
+        /* CSS for the image rotation */  
+.rotate {  
+    animation: rotate 10s infinite linear; /* Adjust time as needed */  
+}  
+
+@keyframes rotate {  
+    0% {  
+        transform: rotate(0deg);  
+    }  
+    100% {  
+        transform: rotate(360deg);  
+    }  
+}  
+
+/* Centering and making the image responsive */  
+.img1 {  
+    display: flex; /* Use flex to center */  
+    justify-content: center; /* Center horizontally */  
+    align-items: center; /* Center vertically (if necessary) */  
+    height: auto; /* Allow height to adjust based on content */  
+    max-width: 100%; /* Prevent overflow */  
+    overflow: hidden; /* Hide any overflow */  
+}  
+
+.img {  
+    max-width: 100%; /* Ensure the image does not overflow */  
+    height: auto; /* Maintain aspect ratio */  
+    width: auto; /* Allow width to scale */  
+    max-height: 80vh; /* Limit max height relative to viewport height */  
+}
+
+    </style>
+</head>
+<body class=" dark:bg-slate-800 ">
+    <nav class="bg-gray-800 nav text-white p-4 flex justify-between items-center  z-10 sticky top-0 w-full">  
+        <div class="text-lg font-bold">Zespół ET</div>  
+        <div class="hidden md:flex space-x-4 pr-10">  
+            <a href="#projects" class="hover:text-gray-400">Projects</a>  
+            <a href="#about" class="hover:text-gray-400">About</a>  
+            <a href="#skill" class="hover:text-gray-400">Skill</a> 
+            <a href="#" class="hover:text-gray-400">Resume</a> 
+            <a href="#contact" class="hover:text-gray-400">Contact</a>  
+        </div>  
+        <div class="md:hidden">  
+            <button id="menuButton" class="text-white" onclick="toggleMenu()">  
+                &#9776; <!-- Hamburger icon -->  
+            </button>  
+        </div>  
+    </nav>  
+
+    <!-- Mobile Menu -->  
+    <div id="navbarLinks" class="navbar-links fixed top-0 left-0 h-full w-1/2 bg-gray-800 text-white p-4 flex flex-col transform -translate-x-full md:hidden z-20">  
+        <div class="flex justify-between items-center">  
+            <div class="text-lg font-bold">Zespół ET</div>  
+            <button onclick="toggleMenu()" class="text-2xl">&times;</button> <!-- Close icon -->  
+        </div>  
+        <div class="mt-4 space-y-4">  
+            <a href="#projects" class="block hover:text-gray-400">Project</a>  
+            <a href="#about" class="block hover:text-gray-400">About</a>  
+            <a href="#skill" class="block hover:text-gray-400">Skill</a>  
+            <a href="#" class="block hover:text-gray-400">Resume</a>
+            <a href="#contact" class="block hover:text-gray-400">Contact</a>  
+        </div>  
+    </div>  
+
+<!--hero section-->
+<section class="flex flex-col md:flex-row items-center justify-between p-4" id="home">  
+    <!-- Text Content -->  
+    <div class="flex-1 p-3 mb-4 md:mb-0">  
+        <h6 class="text-gray-200">CREATIVE WEB DEVELOPER</h6>  
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-orange-500">Hi, I'M TSEGAMARIAM ESKINDER</h1>  
+        <p class="text-lg md:text-xl mb-6 text-gray-200">Passionate web developer specializing in creating user-friendly websites.</p>  
+        <div class="flex space-x-4">  
+           <a href="#projects"><button class="bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition duration-300 hover:shadow-xl hover:scale-105">  
+                View Projects  
+            </button>  </a> 
+          <a href="#contact"  ><button class="bg-orange-600 text-white font-bold py-3 px-6 rounded-full border border-transparent transition duration-300 hover:bg-white hover:text-orange-600 hover:border-orange-600">   
+                Get Started  
+            </button>   </a> 
+        </div>  
+    </div>  
+    
+    <!-- Image Content -->  
+    <div class="flex-1 bg-white">  
+        <img src="./asset/pixelcut-export (2).png" alt="About Image" class="rounded-lg shadow-lg object-cover w-full h-auto">  
+    </div>  
+</section>
+    <!--about section-->
+
+    <section class="flex flex-col md:flex-row items-center justify-center mt-0 mb-0" id="about">  
+        <!-- Text Section -->  
+        <div class="flex-1 p-5 mb-4 md:mb-0">  
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-orange-500">About Me</h2>  
+            <p class="text-lg mb-4 text-white">I'm TSEGAMARIAM ESKINDER, a passionate front-end developer dedicated to creating clean and modern websites that provide an excellent user experience.</p>  
+            <p class="text-lg mb-6 text-orange-500">With expertise in HTML, CSS, JavaScript, and popular frameworks like React and Vue, I enjoy building responsive and interactive applications. I believe in the power of design and functionality and strive to bring innovative ideas to life. Whether working independently or collaborating with a team, I am committed to delivering high-quality solutions that meet user needs and business goals.</p>  
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">Get Started</a>  
+        </div>  
+    
+        <!-- Image Section -->  
+        <div class="img1 flex-1 mb-8 md:mb-0 dark:bg-slate-800">  
+            <img src="./asset/portifolio.jpg" alt="About Image" class="rounded-full shadow-lg object-cover w-full max-w-xs md:max-w-sm lg:max-w-md mx-auto rotate">  
+        </div>  
+    </section>
+<!-- Skills Section -->  
+<div class="py-20 bg-gray-200" id="skill">  
+    <div class="max-w-7xl mx-auto px-4">  
+        <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Skills</h2>  
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">  
+            <!-- HTML Skill -->  
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">  
+                <div class="p-6">  
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">HTML</h3>  
+                    <p class="text-gray-600">Markup Language for creating web pages.</p>  
+                </div>  
+            </div>  
+            <!-- CSS Skill -->  
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">  
+                <div class="p-6">  
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">CSS</h3>  
+                    <p class="text-gray-600">Stylesheet Language for designing web pages.</p>  
+                </div>  
+            </div>  
+            <!-- JavaScript Skill -->  
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">  
+                <div class="p-6">  
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">JavaScript</h3>  
+                    <p class="text-gray-600">Programming Language for dynamic web content.</p>  
+                </div>  
+            </div>  
+            <!-- Vue.js Skill -->  
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">  
+                <div class="p-6">  
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Vue.js</h3>  
+                    <p class="text-gray-600">Progressive JavaScript framework for building UIs.</p>  
+                </div>  
+            </div>  
+            <!-- Tailwind CSS Skill -->  
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">  
+                <div class="p-6">  
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Tailwind CSS</h3>  
+                    <p class="text-gray-600">Utility-first CSS framework for rapid UI development.</p>  
+                </div>  
+            </div>
+            <!--bootstrap--> 
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">  
+                <div class="p-6">  
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Bootstrap</h3>  
+
+                    <p class="text-gray-600">Utility-first CSS framework for rapid UI development.</p>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+</div>
+
+
+<!-- Personal Projects Section -->  
+<div class="py-20 bg-gray-100" id="projects">  
+    <div class="max-w-7xl mx-auto px-4">  
+        <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Personal Projects</h2>  
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">  
+            <!-- Project 1 -->  
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">  
+                <img src="./asset/livecode.png" alt="Live Code Editor" class="w-full h-48 object-cover">  
+                <div class="p-6">  
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Live Code Editor</h3>  
+                    <p class="text-gray-600 mb-4">Create websites easily from any device! This Live Code Editor allows you to write HTML, CSS, and JavaScript in real-time. Check out the demo or access the source code via GitHub.</p>  
+                    <div class="flex justify-between">  
+                        <a href="https://zespol-et.github.io/live_code/" class="text-blue-600 hover:underline">View Project</a>  
+                        <a href="https://gitfront.io/r/Zespol-ET/32Ru62tWkzut/live-code/" class="text-blue-600 hover:underline">GitHub</a>  
+                    </div>  
+                </div>  
+            </div>  
+            <!-- Project 2 -->  
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">  
+                <img src="./asset/chatbot.png" alt="Personal Chatbot" class="w-full h-48 object-cover">  
+                <div class="p-6">  
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Personal Chatbot</h3>  
+                    <p class="text-gray-600 mb-4">This chatbot is designed to assist businesses by providing quick answers to customer inquiries. Whether for a small business or freelancer, this customizable solution can enhance user engagement. Feel free to reach out if you need a chatbot like this!</p>  
+                    <div class="flex justify-between">  
+                        <a href="https://zespol-et.github.io/chatbot/" class="text-blue-600 hover:underline">View Project</a>  
+                        <a href="https://gitfront.io/r/Zespol-ET/855mNMNRoBnb/chatbot/" class="text-blue-600 hover:underline">GitHub</a>  
+                    </div>  
+                </div>  
+            </div>  
+
+            <!-- Project 3 -->  
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">  
+                <img src="./asset/portifolio.jpg" alt="Portfolio Website" class="w-full h-48 object-cover">  
+                <div class="p-6">  
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Portfolio Website</h3>  
+                    <p class="text-gray-600 mb-4">A personal portfolio website to showcase my skills, projects, and experiences. Built using modern web technologies, this site demonstrates my ability to create responsive and user-friendly designs.</p>  
+                    <div class="flex justify-between">  
+                        <a href="#" class="text-blue-600 hover:underline">View Project</a>  
+                        <a href="#" class="text-blue-600 hover:underline">GitHub</a>  
+                    </div>  
+                </div>  
+            </div>  
+
+            <!-- Add more projects as needed -->  
+        </div>  
+    </div>  
+</div>
+<section class="contact bg-white text-center p-8" id="contact">  
+    <span class="border-b-2 border-orange-500 text-lg font-semibold mb-6 inline-block">  
+        Contact Me  
+    </span>  
+
+    <form  action="https://api.web3forms.com/submit" method="POST"  class="max-w-lg mx-auto bg-gray-50 p-6 rounded-lg shadow-md">  
+        <input type="hidden" name="access_key" value="f63d7935-0470-4460-9855-0705edaa0b1a">
+
+         <input type="text" placeholder="Name" name="firt_name"  
+            class="w-full p-4 border-b-2 border-green-500 mb-4 focus:outline-none focus:border-orange-500 transition duration-200">  
+        <input type="email" placeholder="Email"  name="email"  
+            class="w-full p-4 border-b-2 border-green-500 mb-4 focus:outline-none focus:border-orange-500 transition duration-200">  
+        <input type="text" placeholder="Subject"   name="subject" 
+            class="w-full p-4 border-b-2 border-green-500 mb-4 focus:outline-none focus:border-orange-500 transition duration-200">  
+        <textarea placeholder="Message"   name="Message" 
+            class="w-full p-4 border-b-2 border-green-500 mb-4 focus:outline-none focus:border-orange-500 transition duration-200"></textarea>  
+        <button type="submit"  
+            class="bg-orange-500 text-white py-2 px-6 rounded hover:bg-orange-600 transition duration-200 transform hover:scale-105">  
+            Submit  
+        </button>  
+    </form>  
+</section>  
+<!-- New Settler Section -->  
+<div class="bg-gray-800 flex items-center justify-center min-h-60">
+<div class="bg-white shadow-md  p-6 max-w-md w-full">  
+    <h2 class="text-2xl font-bold mb-4 text-center">Subscribe our new Settler</h2>  
+    <form  action="https://api.web3forms.com/submit" method="POST"  method="POST">  
+        <input type="hidden" name="access_key" value="f63d7935-0470-4460-9855-0705edaa0b1a">
+
+        <div class="mb-4">  
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">  
+                Email Address  
+            </label>  
+            <input name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="you@example.com" required>  
+        </div>  
+
+        <div class="flex items-center justify-between">  
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">  
+                Subscribe  
+            </button>  
+        </div>  
+    </form>  
+</div> 
+</div>
+
+<!-- Footer Section -->  
+<footer class="bg-gray-800 text-white py-10">  
+    <div class="max-w-7xl mx-auto px-4">  
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">  
+            <!-- Column 1: About -->  
+            <div>  
+                <h3 class="text-lg font-bold mb-4">About Me</h3>  
+                <p class="text-gray-300">I AM committed to providing the best services and resources for our community. Get to know us better.</p>  
+            </div>  
+            <!-- Column 2: Quick Links -->  
+            <div>  
+                <h3 class="text-lg font-bold mb-4">Quick Links</h3>  
+                <ul class="space-y-2">  
+                    <li><a href="#" class="text-gray-300 hover:underline">Home</a></li>  
+                    <li><a href="#projects" class="text-gray-300 hover:underline">Projects</a></li>  
+                    <li><a href="#" class="text-gray-300 hover:underline">Resume</a></li>  
+                    <li><a href="#contact" class="text-gray-300 hover:underline">Contact</a></li>  
+                </ul>  
+            </div>  
+            <!-- Column 3: Contact Information -->  
+            <div>  
+                <h3 class="text-lg font-bold mb-4">Contact</h3>  
+                <p class="text-gray-300">Email: <a href="mailto:tsegamariam.es@gmail.com" class="text-blue-400 hover:underline">Zespółet@gmail.com</a></p>  
+            </div>  
+            <!-- Column 4: Follow Us -->  
+            <div>  
+                <h3 class="text-lg font-bold mb-4">GET IN TOUCH</h3>  
+                <div class="flex space-x-4">  
+                    <a href="https://t.me/Success2116" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-blue-400"><i class="fa-brands fa-telegram"></i></a>  
+                    <a href="zespolet@gmail.com" class="text-gray-300 hover:text-blue-400"><i class="fa-regular fa-envelope"></i></a>  
+                    <a href="https://www.linkedin.com/in/tsegamariam-e-126b4a298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-300 hover:text-blue-400"><i class="fab fa-linkedin-in"></i></a>  
+                    <a href="https://www.threads.net/@bini21888?xmt=AQGzCNn_t5uZenuOTwXzTJEmnMtG-hhySiiBtyaHeUJ6es0" class="text-gray-300 hover:text-blue-400"><i class="fa-brands fa-threads"></i></a>
+                    <a href="https://wa.me/0942686380" class="text-gray-300 hover:text-blue-400"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>  
+            </div>  
+        </div>  
+        <div class="text-center mt-10">  
+            <p class="text-gray-400">© 2024 Your Zespół ET. All rights reserved.</p>  
+        </div>  
+    </div>  
+</footer>
+
+    <script>  
+         function openModal() {  
+         document.getElementById('myModal').classList.remove('hiddens');  
+     }  
+
+     function closeModal() {  
+         document.getElementById('myModal').classList.add('hiddens');  
+     }  
+    function toggleMenu() {  
+            const navbarLinks = document.getElementById('navbarLinks');  
+            navbarLinks.classList.toggle('translate-x-0'); // Show menu  
+            navbarLinks.classList.toggle('-translate-x-full'); // Hide menu  
+        }  
+ </script>
+</body>
+</html>
